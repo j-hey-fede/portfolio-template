@@ -11,60 +11,81 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const PortfolioView(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, @required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class PortfolioView extends StatelessWidget {
+  const PortfolioView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        title: Row(
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(top: 16.0, bottom: 9.0),
+              child: CircleAvatar(
+                radius: 24,
+                backgroundColor: Colors.white,
+                foregroundImage: NetworkImage(
+                  "https://picsum.photos/200",
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            const Padding(
+              // ignore: unnecessary_const
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "jacquelyn",
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
           ],
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextButton.icon(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(
+                  color: Colors.red,
+                ),
+                backgroundColor: Colors.amberAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+              ),
+              onPressed: () {},
+              icon: const Icon(
+                Icons.send_sharp,
+                color: Colors.red,
+              ),
+              label: const Text(
+                "contact me",
+                style: TextStyle(
+                  color: Colors.black45,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+          )
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
