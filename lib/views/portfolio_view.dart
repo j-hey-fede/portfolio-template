@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:portfolio/widgets/body.dart';
 import 'package:portfolio/widgets/contact_button.dart';
+import 'package:portfolio/widgets/social_media.dart';
 
 class PortfolioView extends StatelessWidget {
   const PortfolioView({Key key}) : super(key: key);
@@ -48,80 +50,17 @@ class PortfolioView extends StatelessWidget {
       ),
       body: Stack(
         // ignore: prefer_const_literals_to_create_immutables
-        children: [const Body()],
-      ),
-    );
-  }
-}
-
-class Body extends StatelessWidget {
-  const Body({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Expanded(
-          flex: 2,
-          child: Container(
-            color: Colors.white12,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 50.0),
-                  child: Expanded(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Opacity(
-                          opacity: 0.42,
-                          child: Image.asset(
-                            "/avatar.jpeg",
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const SizedBox(height: 280),
-                                const Text(
-                                  "hello world!\nI'm Jacquelyn, a mobile developer.",
-                                  style: TextStyle(
-                                    fontSize: 32,
-                                    color: Colors.blueGrey,
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: ContactButton(
-                                    buttonText: "get in touch",
-                                    icon: Icons.mail_outline,
-                                    onPressed: () {},
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+        children: [
+          const Body(),
+          const Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 30),
+              child: SocialMedia(),
             ),
           ),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.white12,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
