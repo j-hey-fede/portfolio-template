@@ -84,8 +84,57 @@ class Body extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Container(
-            color: Colors.white12,
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "creations:",
+                  style: TextStyle(
+                    fontSize: 42,
+                    color: Colors.black45,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 70.0,
+                    right: 30.0,
+                  ),
+                  child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        child: Column(
+                          children: [
+                            Card(
+                              elevation: 3,
+                              child: Column(
+                                children: const [
+                                  ListTile(
+                                    leading: Icon(
+                                      Icons.work,
+                                    ),
+                                    title: Text(
+                                      "Hello",
+                                    ),
+                                    subtitle: Text(
+                                        "Some awesome project thing goes here..."),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
