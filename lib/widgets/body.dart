@@ -84,7 +84,9 @@ class Body extends StatelessWidget {
           ),
         ),
         Expanded(
+          flex: 2,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
               const Padding(
@@ -101,9 +103,7 @@ class Body extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    bottom: 70.0,
-                    right: 30.0,
-                  ),
+                      bottom: 100.0, right: 30.0, left: 8.0),
                   child: ListView.builder(
                     itemCount: 10,
                     itemBuilder: (context, index) {
