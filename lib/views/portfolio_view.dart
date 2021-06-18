@@ -51,7 +51,7 @@ class PortfolioView extends StatelessWidget {
       body: Stack(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
-          const Body(),
+          Body(),
           const Align(
             alignment: Alignment.bottomLeft,
             child: Padding(

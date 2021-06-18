@@ -2,7 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/contact_button.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key key}) : super(key: key);
+  final projectsList = [
+    {
+      'title': 'All the Feelzzz',
+      "subtitle":
+          "An alternative communication system for pain and difference in the body.",
+      "image": "/appicon4.png"
+    },
+    {
+      "title": "Autism Level UP!",
+      "subtitle": "A web app for an educational consulting and resource group.",
+      "image": "/aluptrans.png"
+    },
+    {
+      "title": "All the Feelzzz",
+      "subtitle":
+          "An alternative communication system for pain and difference in the body.",
+      "image": "/appicon4.png"
+    },
+    {
+      "title": 'Autism Level UP!',
+      "subtitle": 'A web app for an educational consulting and resource group.',
+      "image": "/aluptrans.png"
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -86,13 +109,13 @@ class Body extends StatelessWidget {
         Expanded(
           flex: 2,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 50),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(18.0),
                 child: Text(
-                  "creations:",
+                  "latest creations:",
                   style: TextStyle(
                     fontSize: 42,
                     color: Colors.black45,
@@ -105,30 +128,45 @@ class Body extends StatelessWidget {
                   padding: const EdgeInsets.only(
                       bottom: 100.0, right: 30.0, left: 8.0),
                   child: ListView.builder(
-                    itemCount: 10,
+                    itemCount: projectsList.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        child: Column(
-                          children: [
-                            Card(
-                              elevation: 3,
+                      return Column(
+                        children: [
+                          Card(
+                            elevation: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
                               child: Column(
-                                children: const [
+                                children: [
                                   ListTile(
-                                    leading: Icon(
+                                    leading: const Icon(
                                       Icons.work,
                                     ),
-                                    title: Text(
-                                      "Hello",
+                                    title: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 4.0),
+                                      child: Text(
+                                        projectsList[index]['title'],
+                                      ),
                                     ),
                                     subtitle: Text(
-                                        "Some awesome project thing goes here..."),
+                                      projectsList[index]['subtitle'],
+                                    ),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Image.asset(
+                                        projectsList[index]['image'],
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       );
                     },
                   ),
