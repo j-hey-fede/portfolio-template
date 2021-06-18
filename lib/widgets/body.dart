@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/utils/util.dart';
 import 'package:portfolio/widgets/contact_button.dart';
 
 class Body extends StatelessWidget {
+  Body({
+    Key key,
+  }) : super(key: key);
+
   final projectsList = [
     {
       'title': 'All the Feelzzz',
@@ -90,7 +95,9 @@ class Body extends StatelessWidget {
                                     child: ContactButton(
                                       buttonText: "get in touch",
                                       icon: Icons.mail_outline,
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        launchMailto();
+                                      },
                                     ),
                                   ),
                                 ),

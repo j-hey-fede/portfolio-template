@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:portfolio/utils/util.dart';
 import 'package:portfolio/widgets/body.dart';
 import 'package:portfolio/widgets/contact_button.dart';
 import 'package:portfolio/widgets/social_media.dart';
@@ -44,7 +45,9 @@ class PortfolioView extends StatelessWidget {
           ContactButton(
             buttonText: "contact me",
             icon: Icons.send_sharp,
-            onPressed: () {},
+            onPressed: () {
+              launchMailto();
+            },
           ),
         ],
       ),

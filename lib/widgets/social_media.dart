@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:url_launcher/url_launcher.dart';
 
 class SocialMedia extends StatelessWidget {
   const SocialMedia({
@@ -38,18 +39,18 @@ class SocialMedia extends StatelessWidget {
                 child: Row(
                   children: [
                     TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () => launchURL("https://www.facebook.com"),
                       icon: Image.asset('/facebook.png', width: 30, height: 30),
                       label: const Text(''),
                     ),
                     TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () => launchURL("https://www.instagram.com"),
                       icon:
                           Image.asset('/instagram.png', width: 30, height: 30),
                       label: const Text(''),
                     ),
                     TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () => launchURL("https://www.twitter.com"),
                       icon: Image.asset('/twitter.png', width: 30, height: 30),
                       label: const Text(''),
                     ),
@@ -61,5 +62,9 @@ class SocialMedia extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void launchURL(String url) async {
+    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   }
 }
